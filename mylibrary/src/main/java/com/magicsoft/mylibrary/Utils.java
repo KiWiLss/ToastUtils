@@ -17,6 +17,7 @@ import android.support.annotation.NonNull;
 public class Utils {
     private static Context context;
     public static Context getContext(){
+        Utils.context=MyApp.getContext();
         if (context != null) return context;
         throw new NullPointerException("u should init first");
     }
