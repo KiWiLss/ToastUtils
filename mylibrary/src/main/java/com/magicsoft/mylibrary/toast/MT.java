@@ -1,5 +1,6 @@
 package com.magicsoft.mylibrary.toast;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ public class MT {
      * @param mContext
      * @param str
      */
+    @SuppressLint("ShowToast")
     public static void toastCenter(final Context mContext, final String str) {
         if (mToast == null) {
             mToast = Toast.makeText(mContext, str, Toast.LENGTH_SHORT);
@@ -91,7 +93,6 @@ public class MT {
      * @param mContext 上下文
      * @param str      内容
      */
-
     public static void toastCustomDefault(final Context mContext, final String str) {
         toastCustomDefault(mContext,str,R.drawable.alert);
     }

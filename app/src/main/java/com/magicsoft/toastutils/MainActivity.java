@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.magicsoft.mylibrary.Utils;
 import com.magicsoft.mylibrary.toast.MT;
+import com.magicsoft.mylibrary.toast.ToastCustom;
 import com.magicsoft.mylibrary.toast.ToastUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,10 +30,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void custom1(View view) {
-        MT.toastCenter(this,"自定义一");
+        MT.toastCustomDefault(this,"成功",R.drawable.ic_prompt_success);
     }
 
     public void custom2(View view) {
-        MT.toastCustomDefault(this,"自定义样式");
+        MT.toastCustomDefault(this,"警告");
+    }
+
+    public void custom3(View view) {
+        ToastCustom.getmInstance().toastCustomDefault("失败",R.drawable.ic_prompt_error);
     }
 }
