@@ -16,27 +16,37 @@ public class ToastEfficientUtils {//原生的默认位置，高效
     private static long twoTime = 0 ;  
       
     /** 
-     * 显示Toast 
-     * @param
-     * @param message 
+     * short显示Toast
+     * @param message
      */  
     public static void showToast( String message){
-        if(toast == null){  
-            toast = Toast.makeText(Utils.getContext(), message, Toast.LENGTH_SHORT);
-            toast.show() ;  
-            oneTime = System.currentTimeMillis() ;  
-        }else{  
-            twoTime = System.currentTimeMillis() ;  
-            if(message.equals(oldMsg)){  
-                if(twoTime - oneTime > Toast.LENGTH_SHORT){  
-                    toast.show() ;  
-                }  
-            }else{  
-                oldMsg = message ;  
-                toast.setText(message) ;  
-                toast.show() ;  
-            }  
-        }  
-        oneTime = twoTime ;  
-    }  
+        showToast(message,Toast.LENGTH_SHORT);
+    }
+    /**
+     * 自定义时间显示Toast
+     * @param message
+     */
+    public static void showToast( String message,int duration){
+        if(toast == null){
+            toast = Toast.makeText(Utils.getContext(), message, duration);
+            toast.show() ;
+            oneTime = System.currentTimeMillis() ;
+        }else{
+            twoTime = System.currentTimeMillis() ;
+            if(message.equals(oldMsg)){
+                if(twoTime - oneTime > Toast.LENGTH_SHORT){
+                    toast.show() ;
+                }
+            }else{
+                oldMsg = message ;
+                toast.setText(message) ;
+                toast.show() ;
+            }
+        }
+        oneTime = twoTime ;
+    }
+
+
+    
+
 }  
